@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+        applicationId "com.junction.tarjous"
+        minSdkVersion 18
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'lib/arm64-v8a/libcpaJNI.so'
+        exclude 'lib/x86/libsqlcipher.so'
+        exclude 'lib/x86_64/libcpaJNI.so'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+repositories {
+    maven {
+        url "http://proximi-io.bintray.com/proximiio-android"
+    }
+    maven {
+        url "http://indooratlas-ltd.bintray.com/mvn-public"
+    }
+    maven {
+        url  "http://proximi-io.bintray.com/proximiio-android-beta"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.google.android.gms:play-services:10.0.0'
+    compile 'io.proximi.proximiiolibrary:proximiiolibrary:2.4_B7'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    testCompile 'junit:junit:4.12'
+}
