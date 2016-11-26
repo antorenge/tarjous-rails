@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126191153) do
+ActiveRecord::Schema.define(version: 20161126204928) do
 
   create_table "products", force: :cascade do |t|
     t.string   "ean"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20161126191153) do
     t.string   "brand"
     t.string   "ingredient_defaults"
     t.string   "ingredient_type"
+    t.string   "lat"
+    t.string   "long"
   end
 
   create_table "recipes", force: :cascade do |t|
