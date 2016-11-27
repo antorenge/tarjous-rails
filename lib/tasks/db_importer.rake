@@ -3,7 +3,7 @@ require 'json'
 namespace :db_importer do
   desc "TODO"
   task recipes: :environment do
-    file = File.read('/home/antoroko/Desktop/Hackathons/junction/tarjous/recipes-query-kasvis.json')
+    file = File.read('./recipes-query-kasvis.json')
     prod_hash = JSON.parse file
     prod_hash.each do |prod|
       @recipe = Recipe.new
@@ -19,7 +19,7 @@ namespace :db_importer do
   end
 
   task products: :environment do
-    file = File.read('/home/antoroko/Desktop/Hackathons/junction/tarjous/grocery-products-query-kasvis.json')
+    file = File.read('./tarjous/grocery-products-query-kasvis.json')
     prod_hash = JSON.parse file
     prod_hash.each do |prod|
       @product = Product.new
