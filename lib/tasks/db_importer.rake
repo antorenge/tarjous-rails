@@ -19,7 +19,7 @@ namespace :db_importer do
   end
 
   task products: :environment do
-    file = File.read('./tarjous/grocery-products-query-kasvis.json')
+    file = File.read('./grocery-products-query-kasvis.json')
     prod_hash = JSON.parse file
     prod_hash.each do |prod|
       @product = Product.new
